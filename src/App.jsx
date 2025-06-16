@@ -218,8 +218,7 @@ function App() {
                     MERN Stack, Python, SQL
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Java Script, MongoDB, Express, React, Node.js, Bootstrape,
-                    Python, SQL
+                    HTML, CSS, Bootstrap, Java Script, Express, React, Node.js, Python and SQL
                   </p>
                 </div>
                 <div className="bg-white rounded-lg p-4 shadow-sm">
