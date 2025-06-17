@@ -6,7 +6,24 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
-  
+  const [latestRow, setLatestRow] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase
+        .from('academy_placements') 
+        .select('*')
+        .limit(1);
+
+      if (error) {
+        console.error("Error fetching data:", error.message);
+      } else {
+        setLatestRow(data[0]);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
