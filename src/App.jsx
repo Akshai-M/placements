@@ -52,7 +52,7 @@ function App() {
               <h3 className="text-lg font-semibold mb-2">
                 Placed via External
               </h3>
-              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div> 
+              <div className="text-3xl font-bold">{latestRow?.Placed_via_External ?? "N/A"}</div> 
               <p className="text-green-100 text-sm mt-1">
                 Through external channels
               </p>
@@ -60,13 +60,13 @@ function App() {
 
             <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-6 text-white">
               <h3 className="text-lg font-semibold mb-2">Placed via Nxtwave</h3>
-              <div className="text-3xl font-bold">{latestRow?.value4 ?? "N/A"}</div>
+              <div className="text-3xl font-bold">{latestRow?.Placed_via_Nxtwave ?? "N/A"}</div>
               <p className="text-blue-100 text-sm mt-1">Direct placements</p>
             </div>
 
             <div className="bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg p-6 text-white">
               <h3 className="text-lg font-semibold mb-2">Total Placements</h3>
-              <div className="text-3xl font-bold">{Number(latestRow?.value4 ?? 0) + Number(latestRow?.value1 ?? 0)}</div>
+              <div className="text-3xl font-bold">{Number(latestRow?.Placed_via_External ?? 0) + Number(latestRow?.Placed_via_Nxtwave ?? 0)}</div>
               <p className="text-purple-100 text-sm mt-1">
                 Combined success rate
               </p>
@@ -82,21 +82,21 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg p-6 text-white">
-              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div> 
+              <div className="text-3xl font-bold">{latestRow?.Below_Grads_2024 ?? "N/A"}</div> 
               <p className="text-green-100 text-sm mt-1">2024 & Below Grads</p>
             </div>
 
             <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-6 text-white">
-              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div>
+              <div className="text-3xl font-bold">{latestRow?.Grads_2025 ?? "N/A"}</div>
               <p className="text-blue-100 text-sm mt-1">2025 Grads</p>
             </div>
 
             <div className="bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg p-6 text-white">
-              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div> 
+              <div className="text-3xl font-bold">{latestRow?.Below_2026_and_YOG  ?? "N/A"}</div> 
               <p className="text-purple-100 text-sm mt-1">2026 YOG & Below</p>
             </div>
             <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg p-6 text-white">
-              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div>
+              <div className="text-3xl font-bold">{latestRow?.Completed_GC5 ?? "N/A"}</div>
               <p className="text-purple-100 text-sm mt-1">Completed GC5</p>
             </div>
           </div>
@@ -202,7 +202,7 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-emerald-50 rounded-lg p-6 border border-emerald-200 text-center">
                 <div className="text-3xl font-bold text-emerald-600 mb-2">
-                  30 {/*value 7*/}
+                  {latestRow?.Current_Alpha_Users ?? "N/A"} {/*value 7*/}
                 </div>
                 <h3 className="font-semibold text-gray-900">
                   Current Alpha Users
@@ -210,13 +210,13 @@ function App() {
               </div>
 
               <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">{latestRow?.value1 ?? "N/A"}</div> 
+                <div className="text-3xl font-bold text-blue-600 mb-2">{latestRow?.Monthly_Target ?? "N/A"}</div> 
                 <h3 className="font-semibold text-gray-900">Monthly Target</h3>
               </div>
 
               <div className="bg-purple-50 rounded-lg p-6 border border-purple-200 text-center">
                 <div className="text-3xl font-bold text-purple-600 mb-2">
-                  {latestRow?.value1 ?? "N/A"}
+                  {latestRow?.Currently_Active_in_Prep ?? "N/A"}
                 </div>
                 <h3 className="font-semibold text-gray-900">
                   Currently Active in Prep
