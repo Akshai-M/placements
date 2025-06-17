@@ -1,10 +1,12 @@
-// Docs {@link https://tailwindcss.com/docs/text-color}
-import React from "react";
+import {React,  useState, useEffect} from "react";
+import { createClient } from "@supabase/supabase-js";
 
-function App() {
+
+function App() {  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      {/* Header */}
+     
       <div className="bg-white shadow-lg border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-6">
           <h1 className="text-3xl font-bold text-gray-900">
@@ -29,7 +31,7 @@ function App() {
               <h3 className="text-lg font-semibold mb-2">
                 Placed via External
               </h3>
-              <div className="text-3xl font-bold">400</div>
+              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div> 
               <p className="text-green-100 text-sm mt-1">
                 Through external channels
               </p>
@@ -37,13 +39,13 @@ function App() {
 
             <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-6 text-white">
               <h3 className="text-lg font-semibold mb-2">Placed via Nxtwave</h3>
-              <div className="text-3xl font-bold">400</div>
+              <div className="text-3xl font-bold">{latestRow?.value4 ?? "N/A"}</div>
               <p className="text-blue-100 text-sm mt-1">Direct placements</p>
             </div>
 
             <div className="bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg p-6 text-white">
               <h3 className="text-lg font-semibold mb-2">Total Placements</h3>
-              <div className="text-3xl font-bold">800</div>
+              <div className="text-3xl font-bold">{Number(latestRow?.value4 ?? 0) + Number(latestRow?.value1 ?? 0)}</div>
               <p className="text-purple-100 text-sm mt-1">
                 Combined success rate
               </p>
@@ -59,21 +61,21 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg p-6 text-white">
-              <div className="text-3xl font-bold">5,300</div>
+              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div> 
               <p className="text-green-100 text-sm mt-1">2024 & Below Grads</p>
             </div>
 
             <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-6 text-white">
-              <div className="text-3xl font-bold">6,313</div>
+              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div>
               <p className="text-blue-100 text-sm mt-1">2025 Grads</p>
             </div>
 
             <div className="bg-gradient-to-r from-purple-500 to-violet-600 rounded-lg p-6 text-white">
-              <div className="text-3xl font-bold">17,300</div>
+              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div> 
               <p className="text-purple-100 text-sm mt-1">2026 YOG & Below</p>
             </div>
             <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg p-6 text-white">
-              <div className="text-3xl font-bold">1,800</div>
+              <div className="text-3xl font-bold">{latestRow?.value1 ?? "N/A"}</div>
               <p className="text-purple-100 text-sm mt-1">Completed GC5</p>
             </div>
           </div>
@@ -179,7 +181,7 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-emerald-50 rounded-lg p-6 border border-emerald-200 text-center">
                 <div className="text-3xl font-bold text-emerald-600 mb-2">
-                  30
+                  30 {/*value 7*/}
                 </div>
                 <h3 className="font-semibold text-gray-900">
                   Current Alpha Users
@@ -187,13 +189,13 @@ function App() {
               </div>
 
               <div className="bg-blue-50 rounded-lg p-6 border border-blue-200 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">{latestRow?.value1 ?? "N/A"}</div> 
                 <h3 className="font-semibold text-gray-900">Monthly Target</h3>
               </div>
 
               <div className="bg-purple-50 rounded-lg p-6 border border-purple-200 text-center">
                 <div className="text-3xl font-bold text-purple-600 mb-2">
-                  2450
+                  {latestRow?.value1 ?? "N/A"}
                 </div>
                 <h3 className="font-semibold text-gray-900">
                   Currently Active in Prep
@@ -442,3 +444,77 @@ function App() {
 }
 
 export default App;
+
+// import { useEffect, useState } from 'react';
+// import { createClient } from '@supabase/supabase-js';
+
+// // 🔧 Supabase config — use your own keys here
+// const supabaseUrl = 'https://gczgbtjdumeyyvzxahlh.supabase.co';
+// const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjemdidGpkdW1leXl2enhhaGxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxNDQ5MTYsImV4cCI6MjA2NTcyMDkxNn0.c036O8pMRQjITYJ2xCDvxsi1qQIRVryYeuaaUaweolc';
+// const supabase = createClient(supabaseUrl, supabaseKey);
+
+// function App() {
+//   const [data, setData] = useState([]);
+
+//   useEffect(() => {
+//     const fetchSheetData = async () => {
+//       const { data, error } = await supabase
+//         .from('academy_placements') // ✅ update table name without hyphens
+//         .select('*');
+
+//       console.log("Fetched data:", data);
+//       if (error) {
+//         console.error('❌ Error fetching data:', error.message);
+//       } else {
+//         setData(data);
+//       }
+//     };
+
+//     fetchSheetData();
+//   }, []);
+
+//   return (
+//     <div className="min-h-screen bg-gray-50 p-8 font-sans">
+//       <h1 className="text-3xl font-bold mb-6 text-center text-blue-700">Supabase Sheet Data</h1>
+
+//       <div className="overflow-x-auto">
+//         <table className="w-full border-collapse border border-gray-300 text-center shadow-lg bg-white">
+//           <thead className="bg-gray-100">
+//             <tr>
+//               <th className="border p-2">ID</th>
+//               <th className="border p-2">Value 1</th>
+//               <th className="border p-2">Value 2</th>
+//               <th className="border p-2">Value 3</th>
+//               <th className="border p-2">Value 4</th>
+//               <th className="border p-2">Value 5</th>
+//               <th className="border p-2">Value 6</th>
+//               <th className="border p-2">Value 7</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {data && data.length > 0 ? (
+//               data.map((row) => (
+//                 <tr key={row.id}>
+//                   <td className="border p-2">{row.id}</td>
+//                   <td className="border p-2">{row.value1}</td>
+//                   <td className="border p-2">{row.value2}</td>
+//                   <td className="border p-2">{row.value3}</td>
+//                   <td className="border p-2">{row.value4}</td>
+//                   <td className="border p-2">{row.value5}</td>
+//                   <td className="border p-2">{row.value6}</td>
+//                   <td className="border p-2">{row.value7}</td>
+//                 </tr>
+//               ))
+//             ) : (
+//               <tr>
+//                 <td colSpan="8" className="p-4 text-gray-500">No data available</td>
+//               </tr>
+//             )}
+//           </tbody>
+//         </table>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
