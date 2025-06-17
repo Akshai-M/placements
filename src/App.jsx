@@ -193,7 +193,7 @@ function App() {
             <p>Increase alpha users count from 30 to 100 for next month</p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+          <div className="bg-white rounded-xl shadow-lg my-5 p-8 border border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <div className="w-3 h-8 bg-gradient-to-b from-emerald-500 to-green-600 rounded-full mr-3"></div>
               Current Status
