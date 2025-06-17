@@ -255,7 +255,7 @@ function App() {
           </div>
 
           {/* Assessments */}
-          <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+          <div className="bg-white rounded-xl shadow-lg my-5 p-8 border border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <div className="w-3 h-8 bg-gradient-to-b from-violet-500 to-purple-600 rounded-full mr-3"></div>
               Assessments
