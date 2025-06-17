@@ -443,7 +443,6 @@ function App() {
           </h2>
 
           <div className="bg-orange-50 rounded-lg p-8 border border-orange-200 text-center">
-            <div className="  rounded-lg p-4 shadow-sm">
              <p className="text-sm text-black pb-3">
                 <span className="font-medium">Dedicated Target:</span> Scale
                 from 30 to 100 students monthly in placement preparation stage
@@ -455,8 +454,7 @@ function App() {
                 <span className="font-medium">New Placement Team for Academy Includes:</span> ISE's + CRM's + PSM's +
                 Product Manager + Curriculum Team + PCB Representatives
               </p>
-              
-            </div>
+            
           </div>
         </div>
       </div>
@@ -465,77 +463,3 @@ function App() {
 }
 
 export default App;
-
-// import { useEffect, useState } from 'react';
-// import { createClient } from '@supabase/supabase-js';
-
-// // 🔧 Supabase config — use your own keys here
-// const supabaseUrl = 'https://gczgbtjdumeyyvzxahlh.supabase.co';
-// const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjemdidGpkdW1leXl2enhhaGxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAxNDQ5MTYsImV4cCI6MjA2NTcyMDkxNn0.c036O8pMRQjITYJ2xCDvxsi1qQIRVryYeuaaUaweolc';
-// const supabase = createClient(supabaseUrl, supabaseKey);
-
-// function App() {
-//   const [data, setData] = useState([]);
-
-//   useEffect(() => {
-//     const fetchSheetData = async () => {
-//       const { data, error } = await supabase
-//         .from('academy_placements') // ✅ update table name without hyphens
-//         .select('*');
-
-//       console.log("Fetched data:", data);
-//       if (error) {
-//         console.error('❌ Error fetching data:', error.message);
-//       } else {
-//         setData(data);
-//       }
-//     };
-
-//     fetchSheetData();
-//   }, []);
-
-//   return (
-//     <div className="min-h-screen bg-gray-50 p-8 font-sans">
-//       <h1 className="text-3xl font-bold mb-6 text-center text-blue-700">Supabase Sheet Data</h1>
-
-//       <div className="overflow-x-auto">
-//         <table className="w-full border-collapse border border-gray-300 text-center shadow-lg bg-white">
-//           <thead className="bg-gray-100">
-//             <tr>
-//               <th className="border p-2">ID</th>
-//               <th className="border p-2">Value 1</th>
-//               <th className="border p-2">Value 2</th>
-//               <th className="border p-2">Value 3</th>
-//               <th className="border p-2">Value 4</th>
-//               <th className="border p-2">Value 5</th>
-//               <th className="border p-2">Value 6</th>
-//               <th className="border p-2">Value 7</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {data && data.length > 0 ? (
-//               data.map((row) => (
-//                 <tr key={row.id}>
-//                   <td className="border p-2">{row.id}</td>
-//                   <td className="border p-2">{row.value1}</td>
-//                   <td className="border p-2">{row.value2}</td>
-//                   <td className="border p-2">{row.value3}</td>
-//                   <td className="border p-2">{row.value4}</td>
-//                   <td className="border p-2">{row.value5}</td>
-//                   <td className="border p-2">{row.value6}</td>
-//                   <td className="border p-2">{row.value7}</td>
-//                 </tr>
-//               ))
-//             ) : (
-//               <tr>
-//                 <td colSpan="8" className="p-4 text-gray-500">No data available</td>
-//               </tr>
-//             )}
-//           </tbody>
-//         </table>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
